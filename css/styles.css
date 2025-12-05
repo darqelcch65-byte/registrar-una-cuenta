@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/*Estilos generales para el cuerpo de la pagina*/
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #020c1b 0%, #0a192f 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+/*Estilos para el contenedor principal*/
+.contenedor {
+    background-color: #0a192f;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    max-width: 420px;
+    border: 1px solid #172a45;
+}
+h2 {
+    text-align: center;
+    color: #ccd6f6;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-size: 28px;
+}
+.grupo-formulario {
+    margin-bottom: 1.2rem;
+}
+label {
+    display: block;
+    margin-bottom: 6px;
+    color: #8892b0;
+    font-size: 16px;
+    font-weight: 500;
+}
+/*Estilos para los campos de entrada*/
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #233554;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: #112240;
+    color: #e6f1ff;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+ }
+input:focus {
+    outline: none;
+    border-color: #64ffda;
+    background-color: #172a45;
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.1);
+    transform: scale(1.02);
+}
+/*Estilos para los botones*/
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #1d3f66 0%, #0f2d4d 100%);
+    color: #64ffda;
+    border: 1px solid #64ffda;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+button:hover {
+    background: rgba(100, 255, 218, 0.1);
+    box-shadow: 0 4px 12px rgba(100, 255, 218, 0.2);
+    transform: translateY(-2px);
+}
+.enlace-alternar {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 13px;
+    color: #8892b0;
+}
+.enlace-alternar a {
+    color: #64ffda;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+.enlace-alternar a:hover {
+    color: #a8fff0;
+    text-decoration: underline;
+}
+/*Estilos de los mensajes de error y exito*/
+.mensaje-error {
+    color: #ff6b6b;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+    font-weight: 500;
+}
+.mensaje-exito {
+    color: #51cf66;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+/* para ocultar las secciones*/
+.oculto {
+    display: none;
+}
+/* Checkbox para mostrar la contraseña */
+.contenedor-mostrar-contrasena {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    margin-top: 8px;
+    color: #b8c1d8;
+}
+.contenedor-mostrar-contrasena input {
+    width: auto;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+/* --- ANIMACIONES --- */
+
+/* Definición de la animación de entrada (Fade In + Slide Up) */
+@keyframes aparecerSuave {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Aplicar animación a las vistas (hijos directos del contenedor que son divs) */
+.contenedor > div:not(.oculto) {
+    animation: aparecerSuave 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Animación sutil para los labels al pasar el mouse */
+label {
+    transition: color 0.3s ease;
+}
+.grupo-formulario:hover label {
+    color: #64ffda;
+}
+
+/* Estilo para el nombre de usuario en la bienvenida */
+#usuario-bienvenida {
+    color: #e6f1ff;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}

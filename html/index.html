@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Registro e Inicio de Sesión</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!--Contenedor principal que tendra todo el contenido en la pantalla-->
+    <div class="contenedor">
+        <!--Registro-->
+        <!--Formulario para crear una cuenta. lo primero en ser visible-->
+        <div id="vista-registro">
+            <h2>Crear Cuenta</h2>
+            <div id="mensaje-registro" class="mensaje-exito"></div> 
+            <!--Datos del usuario -->
+            <div class="grupo-formulario">
+                <label>Nombre Completo:</label>
+                <input type="text" id="registro-nombre" placeholder="Ej: Juan Mario Pérez Gonzales">
+                <span id="error-registro-nombre" class="mensaje-error"></span>
+            </div>
+            <div class="grupo-formulario">
+                <label>Correo (Usuario):</label>
+                <input type="email" id="registro-correo" placeholder="usuario@email.com">
+                <span id="error-registro-correo" class="mensaje-error"></span>
+            </div>
+            <div class="grupo-formulario">
+                <label>Móvil:</label>
+                <input type="text" id="registro-telefono" placeholder="Ej: 76543210" maxlength="8">
+                <span id="error-registro-telefono" class="mensaje-error"></span>
+            </div>
+            <div class="grupo-formulario">
+                <label>Contraseña:</label>
+                <input type="password" id="registro-contrasena">
+                <!--Checkbox para mostrar o ocultar la contraseña-->
+                <div class="contenedor-mostrar-contrasena">
+                    <input type="checkbox" onclick="alternarContrasena('registro-contrasena')"> Mostrar contraseña
+                </div>
+                <span id="error-registro-contrasena" class="mensaje-error"></span>
+            </div>
+            <!--Botón que activara la función de registro-->
+            <button onclick="registrarUsuario()">Registrarse</button>
+            <!--Enlace para cambiar a iniciar sesión-->
+            <div class="enlace-alternar">
+                ¿Ya tienes cuenta? <a onclick="mostrarIngreso()">Inicia sesión aquí</a>
+            </div>
+        </div>
+        <!--Iniciar Sesión-->
+        <!--Formulario para iniciar sesión despues de registrarse-->
+        <div id="vista-ingreso" class="oculto">
+            <h2>Iniciar Sesión</h2>
+            <div id="mensaje-ingreso" class="mensaje-exito"></div>
+            <div class="grupo-formulario">
+                <label>Usuario (Correo):</label>
+                <input type="email" id="ingreso-correo">
+            </div>
+            <div class="grupo-formulario">
+                <label>Contraseña:</label>
+                <input type="password" id="ingreso-contrasena">
+                <div class="contenedor-mostrar-contrasena">
+                    <input type="checkbox" onclick="alternarContrasena('ingreso-contrasena')"> Mostrar contraseña
+                </div>
+            </div>
+            <button onclick="iniciarSesion()">Ingresar</button>
+            <!--Enlaces para recuperar la contraseña o volverse a registrar-->
+            <div class="enlace-alternar">
+                ¿Olvidaste tu contraseña? <a onclick="mostrarRecuperar()">Recuperar aquí</a><br><br>
+                ¿No tienes cuenta? <a onclick="mostrarRegistro()">Regístrate aquí</a>
+            </div>
+        </div>
+        <!--Recuperar contraseña-->
+        <!--Formulario para crear una nueva contraseña despues de ser bloqueado-->
+        <div id="vista-recuperar" class="oculto">
+            <h2>Recuperar Contraseña</h2>
+            <p style="font-size: 14px; color: #666;">Ingresa tu correo y define una nueva contraseña.</p>
+            <div id="mensaje-recuperacion" class="mensaje-exito"></div>
+            <div class="grupo-formulario">
+                <label>Correo registrado:</label>
+                <input type="email" id="recuperacion-correo">
+            </div>
+            <div class="grupo-formulario">
+                <label>Nueva Contraseña:</label>
+                <input type="password" id="recuperacion-contrasena">
+                <div class="contenedor-mostrar-contrasena">
+                    <input type="checkbox" onclick="alternarContrasena('recuperacion-contrasena')"> Mostrar contraseña
+                </div>
+                <span id="error-recuperacion-contrasena" class="mensaje-error"></span>
+            </div>
+            <button onclick="cambiarContrasena()">Actualizar Contraseña</button>
+            <div class="enlace-alternar">
+                <a onclick="mostrarIngreso()">Volver a Iniciar Sesión</a>
+            </div>
+        </div>
+        <!--Pantalla de bienvenida-->
+        <!--Vista tras inicio de sesion exitoso-->
+        <div id="vista-bienvenida" class="oculto">
+            <h2>¡Bienvenido!</h2>
+            <p id="usuario-bienvenida" style="text-align: center; font-size: 1.2rem;"></p>
+            <button onclick="cerrarSesion()" style="background-color: #dc3545;">Cerrar Sesión</button>
+        </div>
+    </div>
+    <script src="../js/main.js"></script>
+</body>
+</html>
